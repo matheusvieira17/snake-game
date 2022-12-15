@@ -8,3 +8,17 @@ function createBackground() {
 }
 
 createBackground();
+
+let snake = [];
+snake[0] = {
+  x: 8 * box,
+  y: 8 * box,
+};
+function createSnake() {
+  for (let counter = 0; counter < snake.length; counter++) {
+    context.fillStyle = "#2d572c";
+    context.fillRect(snake[counter].x, snake[counter].y, box, box);
+  }
+}
+
+createSnake()
