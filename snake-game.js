@@ -27,6 +27,14 @@ createSnake();
 let direction = "right";
 
 function startGame() {
+  for (counter = 1; counter < snake.length; counter++) {
+    if (snake[0].x === snake[counter].x && snake[0].y === snake[counter].y) {
+      clearInterval(startGame)
+      alert("Fim de jogo")
+      context = ""
+    }
+  }
+
   if (snake[0].x > 15 * box && direction == "right") {
     snake[0].x = 0;
   } else if (snake[0].x < 0 && direction == "left") {
@@ -63,8 +71,8 @@ function startGame() {
   if (snakeX !== food.x || snakeY !== food.y) {
     snake.pop();
   } else {
-    food.x = Math.floor(Math.random() * 15 + 1) * box,
-    food.y = Math.floor(Math.random() * 15 + 1) * box;
+    (food.x = Math.floor(Math.random() * 15 + 1) * box),
+      (food.y = Math.floor(Math.random() * 15 + 1) * box);
   }
 
   let newSnakeHead = {
