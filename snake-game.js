@@ -59,4 +59,17 @@ function startGame() {
   snake.unshift(newSnakeHead);
 }
 
+  document.addEventListener("keydown", update);
+  function update(event) {
+    if (event.keyCode === 37 && direction !== "right") {
+      direction = "left";
+    } else if (event.keyCode === 38 && direction !== "down") {
+      direction = "up";
+    } else if (event.keyCode === 39 && direction !== "left") {
+      direction = "right";
+    } else if (event.keyCode === 40 && direction !== "up") {
+      direction = "down";
+    } 
+  }
+
 let game = setInterval(startGame, 200);
