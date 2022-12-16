@@ -39,6 +39,7 @@ function startGame() {
 
   createBackground();
   createSnake();
+  drawFood()
 
   let snakeX = snake[0].x;
   let snakeY = snake[0].y;
@@ -80,6 +81,16 @@ function update(event) {
   } else if (event.keyCode === 40 && direction !== "up") {
     direction = "down";
   }
+}
+
+let food = {
+  x: Math.floor(Math.random() * 15 + 1) * box,
+  y: Math.floor(Math.random() * 15 + 1) * box
+}
+
+function drawFood() {
+  context.fillStyle = "#d21f3c"
+  context.fillRect(food.x, food.y, box, box)
 }
 
 let game = setInterval(startGame, 200);
